@@ -84,7 +84,7 @@ public class Program
                     exercise = new ExtensionMethodsExercise();
                     break;
                 case 5:
-                    exercise = new DelegatesExercise();
+                    exercise = new LambdaExpressionsExercise();
                     break;
                 case 6:
                     exercise = new AnonymousTypesExercise();

@@ -24,7 +24,7 @@ namespace CSharpHistoryOverview.Exercises.CSharp60
             int age = 30;
 
             // Wykorzystanie interpolacji napisów
-            string message = $"Witaj, nazywam się {name} i mam {age} lat.";
+            string message = $"Witaj, nazywam się {name} i mam {age:P} lat.";
 
             Console.WriteLine(message);
         }

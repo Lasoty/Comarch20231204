@@ -32,6 +32,31 @@ namespace CSharpHistoryOverview.Exercises.CSharp20
             Console.WriteLine("Nazwisko: " + osoba.Nazwisko);
             Console.WriteLine("Wiek: " + osoba.Wiek + " lat");
 
+            List<School> schools = new List<School>();
+
+            //wypełnienie kolekcji
+
+            var result = schools.Where(x => x.StudentsCount > 100)
+                .Select(x => new
+                {
+                    x.StudentsCount,
+                    x.Name,
+                    Description = $"{x.Name} has {x.StudentsCount} students"
+                });
+
+            foreach (var item in result)
+            {
+                Console.WriteLine(item.Description);
+            }
+        }
+
+        class School
+        {
+            public string Name { get; set; }
+
+            public int StudentsCount { get; set; }
+
+            //..
         }
     }
 }

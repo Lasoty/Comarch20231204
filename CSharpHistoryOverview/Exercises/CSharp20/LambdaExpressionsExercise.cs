@@ -91,7 +91,7 @@ namespace CSharpHistoryOverview.Exercises.CSharp20
             // Przykład wyrażenia lambda dodającego dwie liczby
             Operacja dodawanie = (a, b) => a + b;
 
-            // Wywołanie wyrażenia lambda
+            // Wywołanie wyrażenia lambda 
             int suma = dodawanie(5, 3);
             Console.WriteLine("Wynik dodawania: " + suma);
 

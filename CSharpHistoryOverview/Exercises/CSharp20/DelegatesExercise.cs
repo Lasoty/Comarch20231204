@@ -44,6 +44,15 @@ namespace CSharpHistoryOverview.Exercises.CSharp20
             // Wywołanie zdarzenia (jeśli jest subskrybowane)
             OnEventOccurred?.Invoke($"Wykonano akcję: {action}");
         }
+
+        // Metoda wywołująca zdarzenie
+        public void PerformAction2(string action, Func<int, int, string> function)
+        {
+            // Wywołanie zdarzenia (jeśli jest subskrybowane)
+            OnEventOccurred?.Invoke($"Wykonano akcję: {action}");
+
+            //function?.Invoke();
+        }
     }
 
     public class EventSubscriber
