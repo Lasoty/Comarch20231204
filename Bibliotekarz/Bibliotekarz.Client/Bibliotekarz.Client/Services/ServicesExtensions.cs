@@ -6,6 +6,7 @@ public static class ServicesExtensions
     {
         //TODO: Rejestracja lokalnych serwisów.
         services.AddScoped<IWeatherForecastService, WeatherForecastService>();
+        services.AddScoped<IBookService, BookService>();
 
         return services;
     }
