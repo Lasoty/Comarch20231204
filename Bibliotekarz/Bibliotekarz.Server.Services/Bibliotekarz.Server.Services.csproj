@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Bibliotekarz.Server.Data\Bibliotekarz.Server.Data.csproj" />
+    <ProjectReference Include="..\Bibliotekarz.Shared\Bibliotekarz.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

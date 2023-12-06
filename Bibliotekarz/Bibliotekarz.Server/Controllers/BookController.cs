@@ -1,5 +1,8 @@
-﻿using Bibliotekarz.Shared.Model;
+﻿using Bibliotekarz.Server.Data.Context;
+using Bibliotekarz.Server.Services;
+using Bibliotekarz.Shared.Model;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bibliotekarz.Server.Controllers;
 
@@ -16,9 +19,14 @@ public static class BooksRepository
 [Route("api/[controller]")]
 public class BookController : ControllerBase
 {
-    public BookController()
-    {
+    private readonly IBookService bookService;
 
+    public BookController(ApplicationDbContext dbContext, IBookService bookService, Seeder seeder)
+    {
+        this.bookService = bookService;
+        
+        dbContext.Database.Migrate();
+        seeder.Seed();
     }
 
 
@@ -26,7 +34,8 @@ public class BookController : ControllerBase
     [HttpGet("[action]")]
     public async Task<IActionResult> GetAll()
     {
-        return Ok(BooksRepository.books);
+        IEnumerable<BookDto> books = await bookService.GetBooks();
+        return Ok(books);
         //return BadRequest();
         //return NoContent();
         //return StatusCode(StatusCodes.Status201Created);

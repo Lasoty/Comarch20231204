@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bibliotekarz.Server.Service
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bibliotekarz.Shared", "Bibliotekarz.Shared\Bibliotekarz.Shared.csproj", "{EACBAA69-F9E3-408A-A1B0-38D9B9AB3983}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliotekarz.Server.Data", "Bibliotekarz.Server.Data\Bibliotekarz.Server.Data.csproj", "{6A99E7DC-BB80-4AFF-A89D-08490C385D5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EACBAA69-F9E3-408A-A1B0-38D9B9AB3983}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EACBAA69-F9E3-408A-A1B0-38D9B9AB3983}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EACBAA69-F9E3-408A-A1B0-38D9B9AB3983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A99E7DC-BB80-4AFF-A89D-08490C385D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A99E7DC-BB80-4AFF-A89D-08490C385D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A99E7DC-BB80-4AFF-A89D-08490C385D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A99E7DC-BB80-4AFF-A89D-08490C385D5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

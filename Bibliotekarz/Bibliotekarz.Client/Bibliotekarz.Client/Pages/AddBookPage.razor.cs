@@ -14,6 +14,7 @@ public partial class AddBookPage
     [Inject]
     public IBookService BookService { get; set; }
 
+    [Inject]
     public NavigationManager Navigation { get; set; }
 
     protected override Task OnInitializedAsync()
