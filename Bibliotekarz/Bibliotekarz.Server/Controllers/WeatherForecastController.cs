@@ -6,6 +6,10 @@ namespace Bibliotekarz.Server.Controllers
     [Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        public WeatherForecastController(IHttpContextFactory httpContext)
+        {
+        }
+
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"

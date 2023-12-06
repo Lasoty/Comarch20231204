@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Bibliotekarz.Client\Bibliotekarz.Client\Bibliotekarz.Client.csproj" />
+    <ProjectReference Include="..\Bibliotekarz.Server.Services\Bibliotekarz.Server.Services.csproj" />
   </ItemGroup>
 
 </Project>

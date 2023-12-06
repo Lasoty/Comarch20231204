@@ -1,4 +1,5 @@
 ﻿using Bibliotekarz.Client;
+using Bibliotekarz.Client.Services;
 using Blazorise;
 using Blazorise.Bootstrap5;
 using Blazorise.Icons.FontAwesome;
@@ -12,6 +13,8 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
 AddBlazorise(builder.Services);
+
+builder.Services.AddLocalServices();
 
 await builder.Build().RunAsync();
 
