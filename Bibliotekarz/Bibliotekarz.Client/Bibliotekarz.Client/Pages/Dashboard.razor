@@ -1,4 +1,5 @@
 ﻿@using Bibliotekarz.Client.Layouts
+@using Bibliotekarz.Shared.Model
 
 @page "/"
 @layout MainLayout
@@ -27,26 +28,26 @@
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        @foreach (var book in bookList)
-                        {
-                            <TableRow @key="@book.Id">
-                                <TableRowHeader>@book.Id</TableRowHeader>
-                                <TableRowCell>@book.Author</TableRowCell>
-                                <TableRowCell>@book.Title</TableRowCell>
-                                <TableRowCell>@book.PageCount</TableRowCell>
-                                <TableRowCell>@(book.IsBorrowed ? "Tak" : "Nie")</TableRowCell>
-                                <TableRowCell>@book.Borrower?.FirstName</TableRowCell>
-                                <TableRowCell>@book.Borrower?.LastName</TableRowCell>
-                                <TableRowCell>
-                                        <Button Clicked="() => OnDeleteClicked(book.Id)">
-                                        <Icon Name="IconName.Delete" TextColor="TextColor.Danger" /> Usuń
-                                    </Button>
-                                </TableRowCell>
-                            </TableRow>
-                        }
-                    </TableBody>
-                </Table>
-            </CardBody>
-        </Card>
-    </Column>
-</Row>
+                        <Repeater Items="@BookList">
+                            <TableRow @key="@context.Id">
+                                <TableRowHeader>@context.Id</TableRowHeader>
+                                    <TableRowCell>@context.Author</TableRowCell>
+                                    <TableRowCell>@context.Title</TableRowCell>
+                                    <TableRowCell>@context.PageCount</TableRowCell>
+                                    <TableRowCell>@(context.IsBorrowed ? "Tak" : "Nie")</TableRowCell>
+                                    <TableRowCell>@context.Borrower?.FirstName</TableRowCell>
+                                    <TableRowCell>@context.Borrower?.LastName</TableRowCell>
+                                    <TableRowCell>
+                                        <Button Clicked="() => OnDeleteClicked(context.Id)">
+                                            <Icon Name="IconName.Delete" TextColor="TextColor.Danger" /> Usuń
+                                        </Button>
+                                    </TableRowCell>
+                                </TableRow>
+                            </Repeater>
+                            }
+                        </TableBody>
+                    </Table>
+                </CardBody>
+            </Card>
+        </Column>
+    </Row>

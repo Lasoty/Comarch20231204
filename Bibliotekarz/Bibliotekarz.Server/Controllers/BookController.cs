@@ -3,6 +3,15 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Bibliotekarz.Server.Controllers;
 
+public static class BooksRepository
+{
+    public static List<BookDto> books = new()
+        {
+            new BookDto { Id = 1, Author = "Leszek Lewandowski", Title = "Programowanie w C#", PageCount = 345, IsBorrowed = false},
+            new BookDto { Id = 2, Author = "John Sharp", Title = "Design patterns", PageCount = 456, IsBorrowed = true, Borrower = new() { Id = 1, FirstName = "Jan", LastName = "Nowak" } }
+        };
+}
+
 [ApiController]
 [Route("api/[controller]")]
 public class BookController : ControllerBase
@@ -12,16 +21,12 @@ public class BookController : ControllerBase
 
     }
 
-    List<BookDto> books = new()
-        {
-            new BookDto { Id = 1, Author = "Leszek Lewandowski", Title = "Programowanie w C#", PageCount = 345, IsBorrowed = false},
-            new BookDto { Id = 2, Author = "John Sharp", Title = "Design patterns", PageCount = 456, IsBorrowed = true, Borrower = new() { Id = 1, FirstName = "Jan", LastName = "Nowak" } }
-        };
+
 
     [HttpGet("[action]")]
     public async Task<IActionResult> GetAll()
     {
-        return Ok(books);
+        return Ok(BooksRepository.books);
         //return BadRequest();
         //return NoContent();
         //return StatusCode(StatusCodes.Status201Created);
@@ -33,7 +38,7 @@ public class BookController : ControllerBase
     {
         try
         {
-            BookDto book = books.First(x => x.Id == id);
+            BookDto book = BooksRepository.books.First(x => x.Id == id);
             return Ok(book);
         }
         catch (Exception ex)
@@ -45,7 +50,22 @@ public class BookController : ControllerBase
     [HttpPost("[action]")]
     public async Task<IActionResult> Add([FromBody] BookDto book)
     {
-        books.Add(book);
+        BooksRepository.books.Add(book);
         return Created($"api/Book/{book.Id}", book);
+    }
+
+    [HttpDelete("[action]/{id}")]
+    public async Task<IActionResult> Delete(long id)
+    {
+        try
+        {
+            BookDto book = BooksRepository.books.First(x => x.Id == id);
+            BooksRepository.books.Remove(book);
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            return NotFound($"Książka o id {id} nie istnieje w bazie danych.");
+        }
     }
 }

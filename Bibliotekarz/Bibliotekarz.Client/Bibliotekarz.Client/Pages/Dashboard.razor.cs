@@ -1,22 +1,34 @@
 ﻿using Bibliotekarz.Client.Services;
 using Bibliotekarz.Shared.Model;
 using Microsoft.AspNetCore.Components;
+using System.Collections.ObjectModel;
 
 namespace Bibliotekarz.Client.Pages;
 
 public partial class Dashboard
 {
-    private List<BookDto> bookList = new();
+    private ObservableCollection<BookDto> BookList { get; set; } = new();
 
     [Inject]
     public IBookService BookService { get; set; }
 
+    [Inject]
     public IMessageService Messages { get; set; }
 
+    [Inject]
+    public NavigationManager NavigationManager { get; set; }
+
+    private async Task LoadBooks()
+    {
+        List<BookDto> bookList = (await BookService.GetBooks()).ToList();
+        BookList.Clear();
+        foreach (BookDto book in bookList)
+            BookList.Add(book);
+    }
 
     protected override async Task OnInitializedAsync()
     {
-        bookList = (await BookService.GetBooks()).ToList();
+        await LoadBooks();
         await base.OnInitializedAsync();
     }
 
@@ -31,8 +43,17 @@ public partial class Dashboard
         if (confirmed)
         {
             bool isDeleted = await BookService.DeleteBook(bookId);
-            await Messages.Success("Książka została usunięta.");
-            bookList = (await BookService.GetBooks()).ToList();
+
+            if (isDeleted)
+            {
+                await Messages.Success("Książka została usunięta.");
+            }
+            else
+            {
+                await Messages.Error("Nie udało się usunąć książki.");
+            }
+            //NavigationManager.NavigateTo("/");
+            await LoadBooks();
         }
 
     }
