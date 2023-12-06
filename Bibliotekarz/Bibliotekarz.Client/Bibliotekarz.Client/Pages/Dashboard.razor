@@ -14,6 +14,9 @@
                 <CardText>Tutaj znajduje się <b>lista książek</b></CardText>
             </CardBody>
             <CardBody>
+                <Button Type="ButtonType.Link" To="/new-book" Color="Color.Success" Margin="Margin.Is2.FromBottom">
+                    <Icon Name="IconName.Add" TextColor="TextColor.Light" /> Dodaj książkę
+                </Button>
                 <Table Striped>
                     <TableHeader ThemeContrast="ThemeContrast.Dark">
                         <TableRow>
@@ -44,7 +47,6 @@
                                     </TableRowCell>
                                 </TableRow>
                             </Repeater>
-                            }
                         </TableBody>
                     </Table>
                 </CardBody>

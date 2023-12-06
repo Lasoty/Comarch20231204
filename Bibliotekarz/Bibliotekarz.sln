@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bibliotekarz.Client", "Bibl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bibliotekarz.Server.Services", "Bibliotekarz.Server.Services\Bibliotekarz.Server.Services.csproj", "{DFC9D4A3-D84F-486F-A462-711951B53E40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bibliotekarz.Shared", "Bibliotekarz.Shared\Bibliotekarz.Shared.csproj", "{EACBAA69-F9E3-408A-A1B0-38D9B9AB3983}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bibliotekarz.Shared", "Bibliotekarz.Shared\Bibliotekarz.Shared.csproj", "{EACBAA69-F9E3-408A-A1B0-38D9B9AB3983}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
